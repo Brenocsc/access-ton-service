@@ -1,13 +1,12 @@
-const express = require("express");
-const serverless = require("serverless-http");
-
+import express from 'express';
+import serverless from 'serverless-http';
 
 const app = express();
 
 app.use(express.json());
 
 app.get("/health", async function (req, res) {
-  res.status(200).json("OK");
+  res.status(200).json("OKK");
 });
 
 app.use((req, res, next) => {

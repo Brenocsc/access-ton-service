@@ -25,7 +25,7 @@ provider:
 
 functions:
   api:
-    handler: index.handler
+    handler: src/index.handler
     events:
       - httpApi: '*'
 
@@ -44,4 +44,5 @@ resources:
         TableName: ${self:custom.tableName}
 
 plugins:
+  - serverless-plugin-typescript
   - serverless-offline
