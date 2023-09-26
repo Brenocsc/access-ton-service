@@ -25,9 +25,11 @@ provider:
 
 functions:
   api:
-    handler: src/index.handler
+    handler: src/application/lambdas/health-check.handler
     events:
-      - httpApi: '*'
+      - http:
+          path: /health
+          method: get
 
 resources:
   Resources:
