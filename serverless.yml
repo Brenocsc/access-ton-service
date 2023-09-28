@@ -38,22 +38,6 @@ functions:
           path: /health
           method: get
 
-# resources:
-#   Resources:
-#     usersTable:
-#       Type: AWS::DynamoDB::Table
-#       Properties:
-#         TableName: usersTable
-#         AttributeDefinitions:
-#           - AttributeName: email
-#             AttributeType: S
-#         KeySchema:
-#           - AttributeName: email
-#             KeyType: HASH
-#         ProvisionedThroughput:
-#           ReadCapacityUnits: 1
-#           WriteCapacityUnits: 1
-
 resources:
   Resources:
     UsersTable: ${file(resources/dynamo.users.table.yml)}
