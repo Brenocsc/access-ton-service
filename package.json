@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/Brenocsc/access-ton-service#readme",
   "dependencies": {
-    "aws-sdk": "^2.1465.0",
+    "@aws-sdk/client-dynamodb": "^3.421.0",
+    "@aws-sdk/lib-dynamodb": "^3.421.0",
     "countapi-js": "^1.0.2",
     "express": "^4.18.2"
   },
