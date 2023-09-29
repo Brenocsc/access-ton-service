@@ -20,7 +20,7 @@ export class DynamoDBAccessCounterRepository implements AccessCounterRepository 
 
   async store(accessCounter: AccessCounter): Promise<void> {
     const command = new PutCommand({
-      TableName: this.config.tables.usersTable,
+      TableName: this.config.tables.accessCounterTable,
       Item: {
         namespace: accessCounter.namespace,
         count: accessCounter.count
@@ -32,7 +32,7 @@ export class DynamoDBAccessCounterRepository implements AccessCounterRepository 
 
   async findById(namespace: string): Promise<AccessCounter> {
     const command = new GetCommand({
-      TableName: this.config.tables.usersTable,
+      TableName: this.config.tables.accessCounterTable,
       Key: {
         namespace,
       }
