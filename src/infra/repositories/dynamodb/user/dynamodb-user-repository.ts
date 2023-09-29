@@ -30,7 +30,7 @@ export class DynamoDBUserRepository implements UserRepository {
     await this.documentClient.send(command);
   }
 
-  async findByCPF(cpf: string): Promise<User> {
+  async findById(cpf: string): Promise<User> {
     const command = new GetCommand({
       TableName: this.config.tables.usersTable,
       Key: {
@@ -41,5 +41,4 @@ export class DynamoDBUserRepository implements UserRepository {
     const { Item } = await this.documentClient.send(command);
     return Item as User;
   }
-  
 }
