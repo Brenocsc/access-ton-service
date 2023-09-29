@@ -33,6 +33,10 @@ export class DynamoDBCounterService implements AccessCounterService {
 
   async totalCount (namespace: string): Promise<number> {
     const accessCounter = await this.accessCounterRepository.findById(namespace);
+    
+    if (!accessCounter) {
+      throw new Error("namespace don't found");
+    }
 
     return accessCounter.count;
   }
