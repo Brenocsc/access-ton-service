@@ -5,3 +5,5 @@ Stone backend service challenge
 ```
 npm run start:dev
 ```
+
+[PENDING]
