@@ -31,8 +31,22 @@ provider:
     USERS_TABLE: users-table
 
 functions:
-  api:
-    handler: src/infra/lambdas/health-check.handler
+  create-user:
+    handler: src/infra/lambdas/create-user-handler.handler
+    events:
+      - http:
+          path: /user
+          method: post
+
+  # get-user:
+  #   handler: src/infra/lambdas/health-check-handler.handler
+  #   events:
+  #     - http:
+  #         path: /health
+  #         method: get
+
+  health-check:
+    handler: src/infra/lambdas/health-check-handler.handler
     events:
       - http:
           path: /health

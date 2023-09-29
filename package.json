@@ -22,7 +22,9 @@
     "@aws-sdk/client-dynamodb": "^3.421.0",
     "@aws-sdk/lib-dynamodb": "^3.421.0",
     "countapi-js": "^1.0.2",
-    "express": "^4.18.2"
+    "cpf-cnpj-validator": "^1.0.3",
+    "express": "^4.18.2",
+    "zod": "^3.22.2"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.122",
