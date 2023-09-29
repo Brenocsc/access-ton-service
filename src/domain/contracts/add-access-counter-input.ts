@@ -1,11 +1,11 @@
-interface AddAccessCounterAttributes {
+interface AccessCounterAttributes {
   namespace: string;
 }
 
-export class AddAccessCounterInputDomain {
+export class AccessCounterInputDomain {
   public namespace: string;
 
-  constructor (input: AddAccessCounterAttributes) {
+  constructor (input: AccessCounterAttributes) {
     this.namespace = input.namespace;
   }
 }

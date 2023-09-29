@@ -1,6 +1,6 @@
 import { APIGatewayProxyResult, APIGatewayProxyHandler } from "aws-lambda";
 import { AddAccessCounterUseCase } from "../../application/use-cases/add-access-counter";
-import { AddAccessCounterInput } from "../contracts/add-access-counter-input";
+import { AccessCounterInput } from "../contracts/add-access-counter-input";
 
 const addAccessCounterUseCase = new AddAccessCounterUseCase(); 
 
@@ -13,12 +13,12 @@ export const handler: APIGatewayProxyHandler = async (event): Promise<APIGateway
   
     const rawPayload = JSON.parse(body);
     
-    const addAccessCounterInput = new AddAccessCounterInput(rawPayload);
+    const addAccessCounterInput = new AccessCounterInput(rawPayload);
   
     await addAccessCounterUseCase.execute(addAccessCounterInput.toDomain());
     
     return {
-      statusCode: 201,
+      statusCode: 200,
       body: JSON.stringify({
         message: "Added access counter",
       }),
