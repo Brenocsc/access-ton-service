@@ -31,6 +31,13 @@ provider:
     USERS_TABLE: users-table
 
 functions:
+  add-access-counter:
+    handler: src/infra/lambdas/add-access-counter-handler.handler
+    events:
+      - http:
+          path: /count
+          method: put
+
   create-user:
     handler: src/infra/lambdas/create-user-handler.handler
     events:
@@ -55,6 +62,7 @@ functions:
 resources:
   Resources:
     UsersTable: ${file(resources/dynamo.users.table.yml)}
+    CountTable: ${file(resources/dynamo.access.counter.table.yml)}
 
 plugins:
   - serverless-plugin-typescript
