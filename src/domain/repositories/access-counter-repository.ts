@@ -1,4 +1,4 @@
-import { AccessCounter } from "../contracts/access-counter";
+import { AccessCounter } from "@domain/contracts/access-counter";
 
 export interface AccessCounterRepository {
   store(accessCounter: AccessCounter): Promise<void>;

@@ -1,6 +1,6 @@
 import { APIGatewayProxyResult, APIGatewayProxyHandler } from "aws-lambda";
 import { AccessCounterInput, AccessCounterInputType } from "../contracts/add-access-counter-input";
-import { GetAccessCounterUseCase } from "../../application/use-cases/get-access-counter";
+import { GetAccessCounterUseCase } from "@application/use-cases/get-access-counter";
 
 const getAccessCounterUseCase = new GetAccessCounterUseCase(); 
 

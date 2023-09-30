@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { AccessCounterInputDomain } from "../../domain/contracts/add-access-counter-input";
+import { AccessCounterInputDomain } from "@domain/contracts/add-access-counter-input";
 
 const accessCounterInputSchema = z.object({
   namespace: z.string().regex(

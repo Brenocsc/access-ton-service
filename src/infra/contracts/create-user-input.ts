@@ -1,6 +1,6 @@
 import { cpf } from "cpf-cnpj-validator";
 import { z } from "zod";
-import { CreateUserInputDomain } from "../../domain/contracts/create-user-input";
+import { CreateUserInputDomain } from "@domain/contracts/create-user-input";
 
 const createUserInputSchema = z.object({
   cpf: z.string().refine((cpfCandidate) => cpf.isValid(cpfCandidate), {

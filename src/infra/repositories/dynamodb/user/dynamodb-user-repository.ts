@@ -1,7 +1,7 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { PutCommand, GetCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
-import { User } from "../../../../domain/contracts/user";
-import { UserRepository } from "../../../../domain/repositories/user-repository";
+import { User } from "@domain/contracts/user";
+import { UserRepository } from "@domain/repositories/user-repository";
 import { DynamoDBClientFactory } from "../client-factory";
 import { DynamoDBConfiguration } from "../configuration";
 

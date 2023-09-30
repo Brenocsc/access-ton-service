@@ -1,5 +1,5 @@
 import { APIGatewayProxyResult, APIGatewayProxyHandler } from "aws-lambda";
-import { CreateUserUseCase } from "../../application/use-cases/create-user";
+import { CreateUserUseCase } from "@application/use-cases/create-user";
 import { CreateUserInput } from "../contracts/create-user-input";
 
 const createUserUseCase = new CreateUserUseCase(); 

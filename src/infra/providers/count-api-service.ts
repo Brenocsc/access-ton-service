@@ -1,5 +1,5 @@
 import countapi from "countapi-js";
-import { AccessCounterService } from "../../application/services/access-counter";
+import { AccessCounterService } from "@application/services/access-counter";
 
 export class CountAPIService implements AccessCounterService {
   async addCount (namespace: string): Promise<void> {

@@ -2,8 +2,8 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { PutCommand, GetCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 import { DynamoDBClientFactory } from "../client-factory";
 import { DynamoDBConfiguration } from "../configuration";
-import { AccessCounter } from "../../../../domain/contracts/access-counter";
-import { AccessCounterRepository } from "../../../../domain/repositories/access-counter-repository";
+import { AccessCounter } from "@domain/contracts/access-counter";
+import { AccessCounterRepository } from "@domain/repositories/access-counter-repository";
 
 export class DynamoDBAccessCounterRepository implements AccessCounterRepository {
   private client: DynamoDBClient;
