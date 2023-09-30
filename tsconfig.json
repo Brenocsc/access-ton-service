@@ -11,6 +11,21 @@
     "lib": [
       "es2015"
     ],
-    "rootDir": "./"
-  }
+    "rootDir": "./",
+    "baseUrl": ".",
+    "paths": {
+      "@application/*": [
+        "src/application/*"
+      ],
+      "@domain/*": [
+        "src/domain/*"
+      ],
+      "@infra/*": [
+        "src/infra/*"
+      ],
+    },
+  },
+  "include": [
+    "src"
+  ],
 }

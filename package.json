@@ -36,6 +36,7 @@
     "serverless-http": "^3.2.0",
     "serverless-offline": "^13.0.0",
     "serverless-plugin-typescript": "^2.1.5",
+    "serverless-tscpaths": "^0.0.8",
     "typescript": "^5.2.2"
   }
 }

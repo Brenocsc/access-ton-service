@@ -52,12 +52,12 @@ functions:
           path: /user
           method: post
 
-  # get-user:
-  #   handler: src/infra/lambdas/health-check-handler.handler
-  #   events:
-  #     - http:
-  #         path: /health
-  #         method: get
+  get-user:
+    handler: src/infra/lambdas/get-user-handler.handler
+    events:
+      - http:
+          path: /user
+          method: get
 
   health-check:
     handler: src/infra/lambdas/health-check-handler.handler
@@ -73,5 +73,6 @@ resources:
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-tscpaths
   - serverless-dynamodb
   - serverless-offline
