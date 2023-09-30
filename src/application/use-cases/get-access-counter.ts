@@ -12,6 +12,6 @@ export class GetAccessCounterUseCase {
   public async execute (input: AccessCounterInputDomain): Promise<number> {
     const totalCount = await this.accessCounterService.totalCount(input.namespace);
 
-    return totalCount;
+    return totalCount; // TODO: returnar em um DTO
   }
 }
