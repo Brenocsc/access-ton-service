@@ -1,3 +1,4 @@
+import { UserNotFoundError } from "@domain/errors/user-not-found";
 import { GetUserInputDomain } from "../../domain/contracts/get-user-input";
 import { User } from "../../domain/contracts/user";
 import { UserRepository } from "../../domain/repositories/user-repository";
@@ -14,7 +15,7 @@ export class GetUserUseCase {
     const user = await this.userRepository.findById(input.cpf);
 
     if (!user) {
-      throw new Error("user not found");
+      throw new UserNotFoundError(input.cpf);
     }
 
     return user; // TODO: returnar em um DTO

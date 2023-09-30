@@ -1,6 +1,9 @@
 import { APIGatewayProxyResult, APIGatewayProxyHandler } from "aws-lambda";
 import { GetUserInput, GetUserInputType } from "@infra/contracts/get-user-input";
 import { GetUserUseCase } from "@application/use-cases/get-user";
+import { errorMapper } from "@infra/http/error-mapper";
+import { EmptyQueryParamsError } from "@domain/errors/empty-query-params";
+import { ok } from "@infra/http/response";
 
 const getUserUseCase = new GetUserUseCase(); 
 
@@ -8,26 +11,15 @@ export const handler: APIGatewayProxyHandler = async (event): Promise<APIGateway
   try {
     const { queryStringParameters } = event;
     if (!queryStringParameters) {
-      throw new Error("Empty params");
+      throw new EmptyQueryParamsError();
     }
   
     const getUserInput = new GetUserInput(queryStringParameters as GetUserInputType);
   
     const user = await getUserUseCase.execute(getUserInput.toDomain());
     
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        user
-      }),
-    };
+    return ok({ user });
   } catch (error) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        message: error.message,
-        error,
-      }),
-    };
+    return errorMapper(error);
   }
 };

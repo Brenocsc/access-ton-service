@@ -2,6 +2,7 @@ import { AccessCounterService } from "@application/services/access-counter";
 import { AccessCounter } from "@domain/contracts/access-counter";
 import { AccessCounterRepository } from "@domain/repositories/access-counter-repository";
 import { DynamoDBAccessCounterRepository } from "../repositories/dynamodb/access-counter/dynamodb-access-counter-repository";
+import { AccessCounterNotFoundError } from "@domain/errors/access-counter-not-found";
 
 export class DynamoDBCounterService implements AccessCounterService {
   private accessCounterRepository: AccessCounterRepository;
@@ -35,7 +36,7 @@ export class DynamoDBCounterService implements AccessCounterService {
     const accessCounter = await this.accessCounterRepository.findById(namespace);
     
     if (!accessCounter) {
-      throw new Error("namespace don't found");
+      throw new AccessCounterNotFoundError(namespace);
     }
 
     return accessCounter.count;
