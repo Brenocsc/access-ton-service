@@ -12,7 +12,6 @@ export const handler: APIGatewayProxyHandler = async (event): Promise<APIGateway
     }
   
     const rawPayload = JSON.parse(body);
-    console.log("!r", rawPayload);
     
     const createUserInput = new CreateUserInput(rawPayload);
   

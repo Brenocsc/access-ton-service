@@ -8,10 +8,12 @@ const accessCounterInputSchema = z.object({
   ),
 });
 
+export type AccessCounterInputType = z.input<typeof accessCounterInputSchema>;
+
 export class AccessCounterInput {
   private namespace: string;
 
-  constructor (input: z.input<typeof accessCounterInputSchema>) {
+  constructor (input: AccessCounterInputType) {
     const { namespace } = accessCounterInputSchema.parse(input);
 
     this.namespace = namespace;
