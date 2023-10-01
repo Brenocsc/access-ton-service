@@ -1,16 +1,6 @@
 service: access-ton-service
 frameworkVersion: '3'
 
-custom:
-  serverless-dynamodb:
-    stages:
-      - dev
-    port: 8000
-    docker: false
-    start:
-      host: 127.0.0.1
-      migrate: true
-
 provider:
   name: aws
   runtime: nodejs18.x
@@ -37,6 +27,20 @@ functions:
       - http:
           path: /count
           method: get
+          queryStringParameters:
+            namespace:
+              required: true
+              type: 'string'
+          responseData:
+            200:
+              description: Access counter
+              bodyType: GetAccessCounterResponse
+            400:
+              description: Invalid query params
+            404:
+              description: Access Counter with namespace was not found
+            500:
+              description: Internal server error
 
   add-access-counter:
     handler: src/infra/lambdas/add-access-counter-handler.handler
@@ -44,6 +48,14 @@ functions:
       - http:
           path: /count
           method: put
+          bodyType: AddAccessCounterBody
+          responseData:
+            200:
+              description: Added access counter
+            400:
+              description: Invalid body
+            500:
+              description: Internal server error
 
   create-user:
     handler: src/infra/lambdas/create-user-handler.handler
@@ -51,6 +63,14 @@ functions:
       - http:
           path: /user
           method: post
+          bodyType: CreateUserBody
+          responseData:
+            200:
+              description: User created
+            400:
+              description: Invalid body
+            500:
+              description: Internal server error
 
   get-user:
     handler: src/infra/lambdas/get-user-handler.handler
@@ -58,6 +78,20 @@ functions:
       - http:
           path: /user
           method: get
+          queryStringParameters:
+            cpf:
+              required: true
+              type: 'string'
+          responseData:
+            200:
+              description: Access counter
+              bodyType: GetAccessCounterResponse
+            400:
+              description: Invalid query params
+            404:
+              description: Access Counter with namespace was not found
+            500:
+              description: Internal server error
 
   health-check:
     handler: src/infra/lambdas/health-check-handler.handler
@@ -65,6 +99,11 @@ functions:
       - http:
           path: /health
           method: get
+          responseData:
+            200:
+              description: Healthy service
+            500:
+              description: Internal server error
 
 resources:
   Resources:
@@ -72,7 +111,20 @@ resources:
     CountTable: ${file(resources/dynamo.access.counter.table.yml)}
 
 plugins:
+  - serverless-auto-swagger
   - serverless-plugin-typescript
   - serverless-tscpaths
   - serverless-dynamodb
   - serverless-offline
+
+custom:
+  serverless-dynamodb:
+    stages:
+      - dev
+    port: 8000
+    docker: false
+    start:
+      host: 127.0.0.1
+      migrate: true
+  autoswagger:
+    basePath: '/${sls:stage}'

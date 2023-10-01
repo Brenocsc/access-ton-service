@@ -3,6 +3,7 @@ import { AddAccessCounterUseCase } from "@application/use-cases/add-access-count
 import { AccessCounterInput, AccessCounterInputType } from "@infra/contracts/add-access-counter-input";
 import { errorMapper } from "@infra/http/error-mapper";
 import { ok } from "@infra/http/response";
+import { EmptyBodyError } from "@domain/errors/empty-body";
 
 const addAccessCounterUseCase = new AddAccessCounterUseCase(); 
 
@@ -10,7 +11,7 @@ export const handler: APIGatewayProxyHandler = async (event): Promise<APIGateway
   try {
     const { body } = event;
     if (!body) {
-      throw new Error("Empty body");
+      throw new EmptyBodyError();
     }
   
     const rawPayload = JSON.parse(body) as AccessCounterInputType;
