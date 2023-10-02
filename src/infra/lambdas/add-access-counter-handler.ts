@@ -20,7 +20,7 @@ export const handler: APIGatewayProxyHandler = async (event): Promise<APIGateway
   
     await addAccessCounterUseCase.execute(addAccessCounterInput.toDomain());
     
-    return ok({ message: "Added access counter" }); // TODO retornar o valor do count
+    return ok({ message: "Added access counter" });
   } catch (error) {
     return errorMapper(error);
   }
