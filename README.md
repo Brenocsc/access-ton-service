@@ -7,12 +7,6 @@ Desafio back-end proposto pela Stone
 ## Requisítos
 - Node >=18
 
-## Instalação
-
-```bash
-$ npm install
-```
-
 ## Rodando ambiente de desenvolvimento
 
 Primeiramente, instalar os pacotes de dependêcias:
