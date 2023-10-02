@@ -18,6 +18,6 @@ export class GetUserUseCase {
       throw new UserNotFoundError(input.cpf);
     }
 
-    return user; // TODO: returnar em um DTO
+    return user;
   }
 }
