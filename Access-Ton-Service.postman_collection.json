@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "7adb1d32-0c26-4c8e-8bd9-3ce9b0bcf0b7",
+		"name": "Access-Ton-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16179858"
+	},
+	"item": [
+		{
+			"name": "health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/dev/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"08933867074\",\n    \"name\": \"Joao Antonio\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/dev/user?cpf=08933867074",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"user"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "08933867074"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add access counter",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"namespace\": \"ton-test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get access counter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/dev/count?namespace=ton-test.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"count"
+					],
+					"query": [
+						{
+							"key": "namespace",
+							"value": "ton-test.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
