@@ -1,7 +1,7 @@
-import { CreateUserInputDomain } from "../../domain/contracts/create-user-input";
-import { User } from "../../domain/contracts/user";
-import { UserRepository } from "../../domain/repositories/user-repository";
-import { DynamoDBUserRepository } from "../../infra/repositories/dynamodb/user/dynamodb-user-repository";
+import { CreateUserInputDomain } from "@domain/contracts/create-user-input";
+import { User } from "@domain/contracts/user";
+import { UserRepository } from "@domain/repositories/user-repository";
+import { DynamoDBUserRepository } from "@infra/repositories/dynamodb/user/dynamodb-user-repository";
 
 export class CreateUserUseCase {
   private userRepository: UserRepository;
