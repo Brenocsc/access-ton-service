@@ -37,24 +37,20 @@ Além disso, na raiz do projeto encontra-se uma collection do Postman `Access-To
 
 ## Endpoints
 
-### Consultar número de acessos | get-access-counter
-### `GET /count`
+#### Consultar número de acessos | get-access-counter
+`GET /count`
 
-### Incrementar número de acessos | add-access-counter
-### `PUT /count`
+#### Incrementar número de acessos | add-access-counter
+`PUT /count`
 
-### Criar usuário | create-user
-### `POST /user`
+#### Criar usuário | create-user
+`POST /user`
 
-### Consultar usuário | get-user
-### `GET /count`
+#### Consultar usuário | get-user
+`GET /count`
 
-### Verificar status do serviço | health-check
-### `GET /count`
-
-## Variáveis de ambiente 🌐
-
-Atualmente já há um arquivo `.development.env` que será usado apenas para a execução deste serviço.
+#### Verificar status do serviço | health-check
+`GET /count`
 
 ## Tecnologias utilizadas  💻
 - TypeScript
